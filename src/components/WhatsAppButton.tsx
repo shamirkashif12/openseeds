@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-2"
+      className="group fixed bottom-20 right-5 z-50 flex items-center gap-2"
     >
       <span className="pointer-events-none hidden rounded-full bg-card px-4 py-2 text-sm font-semibold text-fg opacity-0 shadow-lg transition group-hover:opacity-100 sm:block">
         WhatsApp par baat karein

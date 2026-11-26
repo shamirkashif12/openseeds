@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { SITE } from "@/lib/data";
+import { useLang } from "@/lib/lang";
+import T from "./T";
 
 export function WhatsAppIcon({ size = 28 }: { size?: number }) {
   return (
@@ -10,24 +12,28 @@ export function WhatsAppIcon({ size = 28 }: { size?: number }) {
   );
 }
 
+const GREETING = {
+  en: "Hello! I would like information about Open Seeds products.",
+  ur: "السلام علیکم! مجھے اوپن سیڈز کی مصنوعات کے بارے میں معلومات چاہیے۔",
+};
+
 export default function WhatsAppButton() {
-  const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-    "Assalam o Alaikum! Mujhe Open Seeds ke products ke baare mein maloomat chahiye."
-  )}`;
+  const lang = useLang();
+  const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(GREETING[lang])}`;
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="WhatsApp par rabta karein"
+      aria-label={lang === "ur" ? "واٹس ایپ پر رابطہ کریں" : "Chat with us on WhatsApp"}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
-      className="group fixed bottom-20 right-5 z-50 flex items-center gap-2"
+      className="group fixed bottom-20 right-5 z-50 flex items-center gap-2 rtl:flex-row-reverse"
     >
       <span className="pointer-events-none hidden rounded-full bg-card px-4 py-2 text-sm font-semibold text-fg opacity-0 shadow-lg transition group-hover:opacity-100 sm:block">
-        WhatsApp par baat karein
+        <T en="Chat on WhatsApp" ur="واٹس ایپ پر بات کریں" />
       </span>
       <span className="pulse-ring relative z-0 grid h-14 w-14 place-items-center rounded-full bg-[#25d366] text-white shadow-xl">
         <WhatsAppIcon />

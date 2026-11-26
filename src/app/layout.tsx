@@ -11,16 +11,17 @@ const FONTS =
 export const metadata: Metadata = {
   title: { default: "Open Seeds | Growing Together", template: "%s | Open Seeds" },
   description:
-    "Open Seed International Agro Crop Sciences — Pakistan ke kisaanon ke liye hybrid corn (P-3940, P-1881), paddy aur sesame seeds.",
+    "Open Seed International Agro Crop Sciences — hybrid corn (P-3940, P-1881), paddy and sesame seeds for Pakistan's farmers.",
   icons: { icon: "/images/logo.jpg" },
 };
 
 // Applies saved / system theme before paint to avoid a flash.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()`;
+// Also applies the saved language (lang + dir) so Urdu visitors never see English flash first.
+const themeScript = `(function(){try{var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');if(localStorage.getItem('lang')==='ur'){d.lang='ur';d.dir='rtl'}}catch(e){}})()`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

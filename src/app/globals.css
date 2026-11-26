@@ -61,6 +61,28 @@ body {
   direction: rtl;
   line-height: 2.1;
 }
+.urdu-font,
+html[lang="ur"] body {
+  font-family: "Poppins", "Noto Nastaliq Urdu", serif;
+}
+
+/* ---- Language switch (see components/T.tsx) ----
+   Both languages are in the HTML; <html lang> decides which one shows. */
+.i18n-en,
+.i18n-ur {
+  display: contents;
+}
+html[lang="ur"] .i18n-en,
+html[lang="ur"] .i18n-en-block,
+html:not([lang="ur"]) .i18n-ur {
+  display: none !important;
+}
+/* Nastaliq needs tall lines, and letter-spacing/uppercase break Urdu letter joining. */
+html[lang="ur"] body :where(h1, h2, h3, h4, p, li, span, a, button, summary, label, th, td, input, textarea, select) {
+  line-height: 1.95;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
 
 @layer components {
 .card {

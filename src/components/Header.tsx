@@ -5,9 +5,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, Mail, Menu, Phone, X } from "lucide-react";
 import { WhatsAppIcon } from "./WhatsAppButton";
 import { useEffect, useState } from "react";
-import { NAV, SITE } from "@/lib/data";
+import { CONTACT_LINK, NAV, SITE } from "@/lib/data";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import LangToggle from "./LangToggle";
+import T from "./T";
 
 export default function Header() {
   const path = usePathname();
@@ -63,7 +65,7 @@ export default function Header() {
                   solid ? "text-fg hover:text-leaf-600" : "text-white hover:text-corn"
                 }`}
               >
-                {n.label}
+                <T {...n.label} />
                 {isActive(n.href) && (
                   <motion.span layoutId="nav-dot" className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-corn" />
                 )}
@@ -72,9 +74,10 @@ export default function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2">
+            <LangToggle light={!solid} />
             <ThemeToggle />
             <Link href="/contact" className="btn-primary hidden !px-5 !py-2.5 text-sm md:inline-flex">
-              Contact Us
+              <T {...CONTACT_LINK.label} />
             </Link>
             <button
               onClick={() => setOpen((o) => !o)}
@@ -98,7 +101,7 @@ export default function Header() {
               className="overflow-hidden border-t border-line bg-bg xl:hidden"
             >
               <div className="mx-auto flex max-h-[calc(100svh-72px)] max-w-7xl flex-col overflow-y-auto px-4 py-4">
-                {[...NAV, { href: "/contact", label: "Contact Us" }].map((n, i) => (
+                {[...NAV, CONTACT_LINK].map((n, i) => (
                   <motion.div key={n.href} initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
                     <Link
                       href={n.href}
@@ -106,17 +109,17 @@ export default function Header() {
                         isActive(n.href) ? "bg-leaf/15 text-leaf-600 dark:text-leaf" : "text-fg hover:bg-bg-alt"
                       }`}
                     >
-                      {n.label}
-                      <ChevronRight size={18} className="opacity-50" />
+                      <T {...n.label} />
+                      <ChevronRight size={18} className="opacity-50 rtl:-scale-x-100" />
                     </Link>
                   </motion.div>
                 ))}
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="mt-4 grid grid-cols-2 gap-3">
                   <a href={`tel:${SITE.phones[0].replace(/-/g, "")}`} className="flex items-center justify-center gap-2 rounded-xl bg-leaf py-3 font-semibold text-white">
-                    <Phone size={18} /> Call
+                    <Phone size={18} /> <T en="Call" ur="کال کریں" />
                   </a>
                   <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-xl bg-[#25d366] py-3 font-semibold text-white">
-                    <WhatsAppIcon size={18} /> WhatsApp
+                    <WhatsAppIcon size={18} /> <T en="WhatsApp" ur="واٹس ایپ" />
                   </a>
                 </motion.div>
                 <p className="urdu mt-4 text-center text-lg text-leaf-600 dark:text-leaf">اوپن سیڈ انٹرنیشنل پر بھروسہ، بہتر مستقبل کی ضمانت</p>

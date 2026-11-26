@@ -3,7 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CATEGORIES, PRODUCTS } from "@/lib/data";
 import ProductCard from "./ProductCard";
+import T from "./T";
 import { Sprout } from "lucide-react";
+
+const ALL = { slug: "all", name: { en: "All Products", ur: "تمام مصنوعات" } };
 
 export default function ProductBrowser() {
   const params = useSearchParams();
@@ -17,11 +20,11 @@ export default function ProductBrowser() {
   return (
     <div id="list">
       <div className="mb-10 flex flex-wrap justify-center gap-3">
-        {[{ slug: "all", name: "All Products" }, ...CATEGORIES].map((c) => (
+        {[ALL, ...CATEGORIES].map((c) => (
           <button key={c.slug} onClick={() => set(c.slug)}
             className={`relative rounded-full px-5 py-2.5 text-sm font-semibold transition ${cat === c.slug ? "text-white" : "border border-line bg-card text-fg hover:border-leaf"}`}>
             {cat === c.slug && <motion.span layoutId="cat-pill" className="absolute inset-0 rounded-full bg-gradient-to-r from-leaf-600 to-leaf" />}
-            <span className="relative">{c.name}</span>
+            <span className="relative"><T {...c.name} /></span>
           </button>
         ))}
       </div>
@@ -39,8 +42,10 @@ export default function ProductBrowser() {
       {list.length === 0 && current && (
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="card mx-auto max-w-xl rounded-3xl p-10 text-center">
           <Sprout className="mx-auto text-leaf" size={48} />
-          <h3 className="mt-4 text-2xl font-bold">{current.name} — Jald Aa Raha Hai!</h3>
-          <p className="mt-2 text-muted">{current.desc}</p>
+          <h3 className="mt-4 text-2xl font-bold">
+            <T en={`${current.name.en} — Coming Soon!`} ur={`${current.name.ur} — جلد آ رہا ہے!`} />
+          </h3>
+          <p className="mt-2 text-muted"><T {...current.desc} /></p>
         </motion.div>
       )}
     </div>

@@ -14,7 +14,7 @@ export default function Counter({ to, suffix = "" }: { to: number; suffix?: stri
   }, [inView, to]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} dir="ltr" className="inline-block">
       {val.toLocaleString("en-US")}
       {suffix}
     </span>

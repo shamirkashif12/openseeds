@@ -1,4 +1,7 @@
 // All site content lives here so it can be edited in one place.
+// Every visible string is an L: { en: English, ur: Urdu (in Urdu script) }.
+
+export type L = { en: string; ur: string };
 
 export const img = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
@@ -38,8 +41,8 @@ export const SITE = {
   email: "openseed145@gmail.com",
   phones: ["0305-1728923", "0300-1594118", "0303-0009145"],
   whatsapp: "923051728923",
-  factory: "Factory: 1-KM Pakpattan Road, Qaboola, Arifwala",
-  office: "Office: C Sector, Bahria Town, Lahore",
+  factory: { en: "1-KM Pakpattan Road, Qaboola, Arifwala", ur: "ایک کلومیٹر پاکپتن روڈ، قبولہ، عارف والا" },
+  office: { en: "C Sector, Bahria Town, Lahore", ur: "سی سیکٹر، بحریہ ٹاؤن، لاہور" },
   mapLat: 30.1965325,
   mapLng: 73.0944825,
   mapLink:
@@ -52,6 +55,7 @@ export const SITE = {
   },
 };
 
+// Brand slogans — always shown in Urdu, in both languages.
 export const URDU = {
   slogan1: "واہ کیا بات ہے اوپن سیڈز کی",
   slogan2: "اب ہوں گے ہمارے خواب پورے",
@@ -59,20 +63,21 @@ export const URDU = {
   farmers: "سب زمینداروں کا اعتماد صرف اوپن سیڈز",
 };
 
-export const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/products", label: "Products & Services" },
-  { href: "/research-development", label: "Research & Development" },
-  { href: "/downloads", label: "Downloads" },
-  { href: "/gallery", label: "Gallery" },
+export const NAV: { href: string; label: L }[] = [
+  { href: "/", label: { en: "Home", ur: "ہوم" } },
+  { href: "/about", label: { en: "About Us", ur: "ہمارے بارے میں" } },
+  { href: "/products", label: { en: "Products & Services", ur: "مصنوعات و خدمات" } },
+  { href: "/research-development", label: { en: "Research & Development", ur: "تحقیق و ترقی" } },
+  { href: "/downloads", label: { en: "Downloads", ur: "ڈاؤن لوڈز" } },
+  { href: "/gallery", label: { en: "Gallery", ur: "گیلری" } },
 ];
+
+export const CONTACT_LINK = { href: "/contact", label: { en: "Contact Us", ur: "رابطہ کریں" } };
 
 export type Category = {
   slug: string;
-  name: string;
-  urdu: string;
-  desc: string;
+  name: L;
+  desc: L;
   image: string;
   comingSoon?: boolean;
 };
@@ -80,31 +85,39 @@ export type Category = {
 export const CATEGORIES: Category[] = [
   {
     slug: "field-crops",
-    name: "Field Crops",
-    urdu: "فیلڈ کراپس",
-    desc: "Hybrid corn aur paddy seeds jo Pakistan ke mausam ke liye tayyar kiye gaye hain.",
+    name: { en: "Field Crops", ur: "فیلڈ کراپس" },
+    desc: {
+      en: "Hybrid corn and paddy seeds bred for Pakistan's climate.",
+      ur: "ہائبرڈ مکئی اور دھان کے بیج جو پاکستان کے موسم کے لیے تیار کیے گئے ہیں۔",
+    },
     image: IMG.cornRows,
   },
   {
     slug: "oil-seeds",
-    name: "Oil Seeds",
-    urdu: "آئل سیڈز",
-    desc: "Sesame (til) aur doosre oil seeds — kam pani, achi paidawar, behtar munafa.",
+    name: { en: "Oil Seeds", ur: "آئل سیڈز" },
+    desc: {
+      en: "Sesame and other oil seeds — less water, good yield, better profit.",
+      ur: "تل اور دیگر تیل دار بیج — کم پانی، اچھی پیداوار، بہتر منافع۔",
+    },
     image: IMG.sunflower,
   },
   {
     slug: "vegetables",
-    name: "Vegetables",
-    urdu: "سبزیاں",
-    desc: "Hybrid sabziyon ke beej — tayyari jari hai, jald market mein dastyab.",
+    name: { en: "Vegetables", ur: "سبزیاں" },
+    desc: {
+      en: "Hybrid vegetable seeds — in preparation and coming to market soon.",
+      ur: "ہائبرڈ سبزیوں کے بیج — تیاری جاری ہے، جلد مارکیٹ میں دستیاب۔",
+    },
     image: IMG.vegetables,
     comingSoon: true,
   },
   {
     slug: "fodder",
-    name: "Fodder",
-    urdu: "چارہ",
-    desc: "Maweshiyon ke liye ziada hara chara dene wali varieties — jald aa rahi hain.",
+    name: { en: "Fodder", ur: "چارہ" },
+    desc: {
+      en: "High-yield green fodder varieties for livestock — coming soon.",
+      ur: "مویشیوں کے لیے زیادہ سبز چارہ دینے والی اقسام — جلد آ رہی ہیں۔",
+    },
     image: IMG.greenRows,
     comingSoon: true,
   },
@@ -112,239 +125,337 @@ export const CATEGORIES: Category[] = [
 
 export type Product = {
   slug: string;
-  name: string;
-  crop: string;
+  name: L;
+  crop: L;
   category: string;
   image: string;
   isNew?: boolean;
-  short: string;
-  description: string;
-  features: string[];
-  specs: { label: string; value: string }[];
-  season: string;
+  short: L;
+  description: L;
+  features: L[];
+  specs: { label: L; value: L }[];
 };
+
+const same = (s: string): L => ({ en: s, ur: s });
+
+const SPEC = {
+  crop: { en: "Crop", ur: "فصل" },
+  season: { en: "Season", ur: "موسم" },
+  maturity: { en: "Maturity", ur: "پکنے کا دورانیہ" },
+  grain: { en: "Grain Colour", ur: "دانے کا رنگ" },
+  seedRate: { en: "Seed Rate", ur: "شرحِ بیج" },
+  germination: { en: "Germination", ur: "اگاؤ" },
+  nursery: { en: "Nursery", ur: "پنیری" },
+  transplanting: { en: "Transplanting", ur: "منتقلی" },
+  sowing: { en: "Sowing", ur: "بوائی" },
+};
+const CORN: L = { en: "Maize / Corn (Hybrid)", ur: "مکئی (ہائبرڈ)" };
+const SPRING_AUTUMN: L = { en: "Spring & Autumn", ur: "بہار و خزاں" };
+const KHARIF: L = { en: "Kharif", ur: "خریف" };
+const JUNE_JULY: L = { en: "June – July", ur: "جون – جولائی" };
+const HYBRID_CORN: L = { en: "Hybrid Corn Seed", ur: "ہائبرڈ مکئی کا بیج" };
 
 // NOTE: spec values are indicative placeholders — confirm with the agronomy team.
 export const PRODUCTS: Product[] = [
   {
     slug: "p-3940",
-    name: "P-3940",
-    crop: "Hybrid Corn Seed",
+    name: same("P-3940"),
+    crop: HYBRID_CORN,
     category: "field-crops",
     image: "/images/corn-p3940.jpg",
-    short: "Lambi challi, bhari daana — har zameendar ki pehli pasand.",
-    description:
-      "P-3940 Open Seeds ki flagship hybrid corn variety hai. Mazboot tanna, lambi aur poori bhari hui challi, aur chamakdar orange-yellow daana. Spring aur autumn dono seasons ke liye mozoon.",
+    short: {
+      en: "Long cobs, heavy grain — every farmer's first choice.",
+      ur: "لمبی چھلی، بھاری دانہ — ہر زمیندار کی پہلی پسند۔",
+    },
+    description: {
+      en: "P-3940 is Open Seeds' flagship hybrid corn variety: a strong stalk, long and fully filled cobs, and bright orange-yellow grain. Suited to both the spring and autumn seasons.",
+      ur: "P-3940 اوپن سیڈز کی فلیگ شپ ہائبرڈ مکئی کی قسم ہے۔ مضبوط تنا، لمبی اور مکمل بھری ہوئی چھلی، اور چمکدار نارنجی پیلا دانہ۔ بہار اور خزاں دونوں موسموں کے لیے موزوں۔",
+    },
     features: [
-      "High yield potential — zyada paidawar",
-      "Mazboot tanna, girne (lodging) ka kam khatra",
-      "Bimariyon ke khilaf behtar qoowat-e-mudafiat",
-      "Orange-yellow, bhari aur chamakdar daana",
-      "Garmi aur pani ki kami bardasht karne ki salahiyat",
+      { en: "High yield potential", ur: "زیادہ پیداوار کی صلاحیت" },
+      { en: "Strong stalk with low risk of lodging", ur: "مضبوط تنا، گرنے کا کم خطرہ" },
+      { en: "Better resistance to disease", ur: "بیماریوں کے خلاف بہتر قوتِ مدافعت" },
+      { en: "Heavy, bright orange-yellow grain", ur: "نارنجی پیلا، بھاری اور چمکدار دانہ" },
+      { en: "Tolerates heat and water shortage", ur: "گرمی اور پانی کی کمی برداشت کرنے کی صلاحیت" },
     ],
     specs: [
-      { label: "Crop", value: "Maize / Corn (Hybrid)" },
-      { label: "Season", value: "Spring & Autumn" },
-      { label: "Maturity", value: "110 – 120 din" },
-      { label: "Grain Colour", value: "Orange-Yellow" },
-      { label: "Seed Rate", value: "8 – 10 kg / acre" },
-      { label: "Germination", value: "90%+ (min.)" },
+      { label: SPEC.crop, value: CORN },
+      { label: SPEC.season, value: SPRING_AUTUMN },
+      { label: SPEC.maturity, value: { en: "110 – 120 days", ur: "110 – 120 دن" } },
+      { label: SPEC.grain, value: { en: "Orange-Yellow", ur: "نارنجی پیلا" } },
+      { label: SPEC.seedRate, value: { en: "8 – 10 kg / acre", ur: "8 – 10 کلو فی ایکڑ" } },
+      { label: SPEC.germination, value: { en: "90%+ (min.)", ur: "کم از کم 90%" } },
     ],
-    season: "Spring & Autumn",
   },
   {
     slug: "p-1881",
-    name: "P-1881",
-    crop: "Hybrid Corn Seed",
+    name: same("P-1881"),
+    crop: HYBRID_CORN,
     category: "field-crops",
     image: IMG.cornCobs,
     isNew: true,
-    short: "Naya! Jadeed genetics ke sath agle darje ki paidawar.",
-    description:
-      "P-1881 hamari nayi hybrid corn variety hai jo jadeed research ke baad market mein laayi gayi hai. Yaksan (uniform) fasal, lambi challi aur behtar daana bharai — zameendar ke khwab poore karne ke liye.",
+    short: {
+      en: "New! Next-level yield with modern genetics.",
+      ur: "نیا! جدید جینیات کے ساتھ اگلے درجے کی پیداوار۔",
+    },
+    description: {
+      en: "P-1881 is our new hybrid corn variety, brought to market after extensive research. A uniform crop, long cobs and better grain filling — made to fulfil every farmer's dreams.",
+      ur: "P-1881 ہماری نئی ہائبرڈ مکئی کی قسم ہے جو جدید تحقیق کے بعد مارکیٹ میں لائی گئی ہے۔ یکساں فصل، لمبی چھلی اور بہتر دانہ بھرائی — زمیندار کے خواب پورے کرنے کے لیے۔",
+    },
     features: [
-      "Nayi genetics — next-level yield",
-      "Uniform plant height aur challi placement",
-      "Achi daana bharai (grain filling)",
-      "Stay-green — akhir tak hara tanna",
-      "Silage aur grain dono ke liye mozoon",
+      { en: "New genetics — next-level yield", ur: "نئی جینیات — اگلے درجے کی پیداوار" },
+      { en: "Uniform plant height and cob placement", ur: "پودے کی یکساں اونچائی اور چھلی کی ترتیب" },
+      { en: "Excellent grain filling", ur: "بہترین دانہ بھرائی" },
+      { en: "Stay-green — the stalk stays green until harvest", ur: "اسٹے گرین — آخر تک ہرا تنا" },
+      { en: "Suited to both silage and grain", ur: "سائلج اور دانے دونوں کے لیے موزوں" },
     ],
     specs: [
-      { label: "Crop", value: "Maize / Corn (Hybrid)" },
-      { label: "Season", value: "Spring & Autumn" },
-      { label: "Maturity", value: "115 – 125 din" },
-      { label: "Grain Colour", value: "Yellow-Orange" },
-      { label: "Seed Rate", value: "8 – 10 kg / acre" },
-      { label: "Germination", value: "90%+ (min.)" },
+      { label: SPEC.crop, value: CORN },
+      { label: SPEC.season, value: SPRING_AUTUMN },
+      { label: SPEC.maturity, value: { en: "115 – 125 days", ur: "115 – 125 دن" } },
+      { label: SPEC.grain, value: { en: "Yellow-Orange", ur: "پیلا نارنجی" } },
+      { label: SPEC.seedRate, value: { en: "8 – 10 kg / acre", ur: "8 – 10 کلو فی ایکڑ" } },
+      { label: SPEC.germination, value: { en: "90%+ (min.)", ur: "کم از کم 90%" } },
     ],
-    season: "Spring & Autumn",
   },
   {
     slug: "paddy-seed",
-    name: "Paddy Seed",
-    crop: "Rice / Paddy",
+    name: { en: "Paddy Seed", ur: "دھان کا بیج" },
+    crop: { en: "Rice / Paddy", ur: "چاول / دھان" },
     category: "field-crops",
     image: "/images/paddy-seed.jpg",
-    short: "Saaf suthra, certified paddy beej — behtar munafa.",
-    description:
-      "Open Seeds ka paddy seed chuna hua, saaf aur graded beej hai jo Punjab aur Sindh ke chawal ke ilaqon ke liye mozoon hai. Lamba daana, achi milling aur market mein behtar qeemat.",
+    short: {
+      en: "Clean, certified paddy seed — better returns.",
+      ur: "صاف ستھرا، تصدیق شدہ دھان کا بیج — بہتر منافع۔",
+    },
+    description: {
+      en: "Open Seeds paddy seed is selected, cleaned and graded for the rice-growing areas of Punjab and Sindh. Long grain, good milling and a better price in the market.",
+      ur: "اوپن سیڈز کا دھان کا بیج چنا ہوا، صاف اور گریڈ شدہ ہے جو پنجاب اور سندھ کے چاول کے علاقوں کے لیے موزوں ہے۔ لمبا دانہ، اچھی ملنگ اور مارکیٹ میں بہتر قیمت۔",
+    },
     features: [
-      "Graded aur saaf beej",
-      "Lamba aur patla daana",
-      "Achi milling recovery",
-      "Nursery mein yaksan ugaao",
+      { en: "Graded and clean seed", ur: "گریڈ شدہ اور صاف بیج" },
+      { en: "Long, slender grain", ur: "لمبا اور پتلا دانہ" },
+      { en: "Good milling recovery", ur: "اچھی ملنگ ریکوری" },
+      { en: "Uniform germination in the nursery", ur: "پنیری میں یکساں اگاؤ" },
     ],
     specs: [
-      { label: "Crop", value: "Rice / Paddy" },
-      { label: "Season", value: "Kharif" },
-      { label: "Nursery", value: "May – June" },
-      { label: "Transplanting", value: "June – July" },
-      { label: "Germination", value: "85%+ (min.)" },
+      { label: SPEC.crop, value: { en: "Rice / Paddy", ur: "چاول / دھان" } },
+      { label: SPEC.season, value: KHARIF },
+      { label: SPEC.nursery, value: { en: "May – June", ur: "مئی – جون" } },
+      { label: SPEC.transplanting, value: JUNE_JULY },
+      { label: SPEC.germination, value: { en: "85%+ (min.)", ur: "کم از کم 85%" } },
     ],
-    season: "Kharif",
   },
   {
     slug: "sesame-seed",
-    name: "Sesame Seed",
-    crop: "Til / Sesame",
+    name: { en: "Sesame Seed", ur: "تل کا بیج" },
+    crop: { en: "Sesame (Til)", ur: "تل" },
     category: "oil-seeds",
     image: "/images/sesame-seed.jpg",
-    short: "Kam kharcha, kam pani — til ki fasal se behtar aamdani.",
-    description:
-      "Sesame (til) ek naqd-aawar oil seed fasal hai. Open Seeds ka sesame beej zyada phalliyan, behtar oil content aur kam pani mein achi paidawar deta hai.",
+    short: {
+      en: "Low cost, less water — better income from sesame.",
+      ur: "کم خرچ، کم پانی — تل کی فصل سے بہتر آمدنی۔",
+    },
+    description: {
+      en: "Sesame is a cash oil-seed crop. Open Seeds sesame seed gives more capsules, a higher oil content and a good yield with less water.",
+      ur: "تل ایک نقد آور تیل دار فصل ہے۔ اوپن سیڈز کا تل کا بیج زیادہ پھلیاں، تیل کی بہتر مقدار اور کم پانی میں اچھی پیداوار دیتا ہے۔",
+    },
     features: [
-      "Zyada phalliyan (capsules) per plant",
-      "Behtar oil content",
-      "Kam pani mein bhi achi paidawar",
-      "Export quality daana",
+      { en: "More capsules per plant", ur: "فی پودا زیادہ پھلیاں" },
+      { en: "Higher oil content", ur: "تیل کی بہتر مقدار" },
+      { en: "Good yield even with less water", ur: "کم پانی میں بھی اچھی پیداوار" },
+      { en: "Export-quality grain", ur: "ایکسپورٹ کوالٹی دانہ" },
     ],
     specs: [
-      { label: "Crop", value: "Sesame / Til" },
-      { label: "Season", value: "Kharif" },
-      { label: "Sowing", value: "June – July" },
-      { label: "Seed Rate", value: "1.5 – 2 kg / acre" },
-      { label: "Germination", value: "85%+ (min.)" },
+      { label: SPEC.crop, value: { en: "Sesame (Til)", ur: "تل" } },
+      { label: SPEC.season, value: KHARIF },
+      { label: SPEC.sowing, value: JUNE_JULY },
+      { label: SPEC.seedRate, value: { en: "1.5 – 2 kg / acre", ur: "1.5 – 2 کلو فی ایکڑ" } },
+      { label: SPEC.germination, value: { en: "85%+ (min.)", ur: "کم از کم 85%" } },
     ],
-    season: "Kharif",
   },
 ];
 
-export const STATS = [
-  { value: 10000, suffix: "+", label: "Khush Kisaan", sub: "Happy Farmers" },
-  { value: 300, suffix: "+", label: "Dealers Network", sub: "Across Pakistan" },
-  { value: 25, suffix: "+", label: "Districts", sub: "Punjab & Sindh" },
-  { value: 4, suffix: "", label: "Seed Products", sub: "Aur barhte hue" },
+export const STATS: { value: number; suffix: string; label: L; sub: L }[] = [
+  { value: 10000, suffix: "+", label: { en: "Happy Farmers", ur: "خوش کسان" }, sub: { en: "Who trust our seed", ur: "جو ہمارے بیج پر بھروسہ کرتے ہیں" } },
+  { value: 300, suffix: "+", label: { en: "Dealer Network", ur: "ڈیلر نیٹ ورک" }, sub: { en: "Across Pakistan", ur: "پورے پاکستان میں" } },
+  { value: 25, suffix: "+", label: { en: "Districts", ur: "اضلاع" }, sub: { en: "Punjab & Sindh", ur: "پنجاب و سندھ" } },
+  { value: 4, suffix: "", label: { en: "Seed Products", ur: "بیج کی مصنوعات" }, sub: { en: "And growing", ur: "اور بڑھ رہی ہیں" } },
 ];
 
-export const WHY_US = [
+export const WHY_US: { icon: string; title: L; text: L }[] = [
   {
     icon: "ShieldCheck",
-    title: "Quality Assurance",
-    text: "Har bag lab-tested — germination, purity aur moisture check ke baad hi market mein.",
+    title: { en: "Quality Assurance", ur: "معیار کی ضمانت" },
+    text: {
+      en: "Every bag is lab-tested — it reaches the market only after germination, purity and moisture checks.",
+      ur: "ہر بیگ لیبارٹری سے ٹیسٹ شدہ — اگاؤ، خالصیت اور نمی کی جانچ کے بعد ہی مارکیٹ میں۔",
+    },
   },
   {
     icon: "Sprout",
-    title: "High Yield Varieties",
-    text: "Pakistan ke mausam aur zameen ke mutabiq chuni gayi zyada paidawar wali varieties.",
+    title: { en: "High-Yield Varieties", ur: "زیادہ پیداوار والی اقسام" },
+    text: {
+      en: "High-yield varieties selected to suit Pakistan's climate and soil.",
+      ur: "پاکستان کے موسم اور زمین کے مطابق چنی گئی زیادہ پیداوار والی اقسام۔",
+    },
   },
   {
     icon: "FlaskConical",
-    title: "Research Based",
-    text: "Field trials aur R&D ke zariye har season behtar genetics ka intikhab.",
+    title: { en: "Research Based", ur: "تحقیق پر مبنی" },
+    text: {
+      en: "Better genetics selected every season through field trials and R&D.",
+      ur: "فیلڈ ٹرائلز اور تحقیق کے ذریعے ہر موسم بہتر جینیات کا انتخاب۔",
+    },
   },
   {
     icon: "Handshake",
-    title: "Farmer Support",
-    text: "Bowai se kataai tak — hamari field team aap ke sath, har qadam par rehnumai.",
+    title: { en: "Farmer Support", ur: "کسان کی معاونت" },
+    text: {
+      en: "From sowing to harvest — our field team is with you, guiding every step.",
+      ur: "بوائی سے کٹائی تک — ہماری فیلڈ ٹیم ہر قدم پر آپ کے ساتھ اور آپ کی رہنمائی کے لیے۔",
+    },
   },
 ];
 
-export const PROCESS = [
-  { title: "Research", text: "Germplasm selection aur breeding", icon: "Microscope" },
-  { title: "Field Trials", text: "Mukhtalif ilaqon mein testing", icon: "Tractor" },
-  { title: "Processing", text: "Cleaning, grading aur treatment", icon: "Factory" },
-  { title: "Quality Lab", text: "Germination & purity tests", icon: "FlaskConical" },
-  { title: "Aap Tak", text: "Dealers ke zariye har gaon tak", icon: "Truck" },
+export const PROCESS: { title: L; text: L; icon: string }[] = [
+  { title: { en: "Research", ur: "تحقیق" }, text: { en: "Germplasm selection and breeding", ur: "جرم پلازم کا انتخاب اور بریڈنگ" }, icon: "Microscope" },
+  { title: { en: "Field Trials", ur: "فیلڈ ٹرائلز" }, text: { en: "Testing across different regions", ur: "مختلف علاقوں میں جانچ" }, icon: "Tractor" },
+  { title: { en: "Processing", ur: "پروسیسنگ" }, text: { en: "Cleaning, grading and treatment", ur: "صفائی، گریڈنگ اور ٹریٹمنٹ" }, icon: "Factory" },
+  { title: { en: "Quality Lab", ur: "کوالٹی لیب" }, text: { en: "Germination & purity tests", ur: "اگاؤ اور خالصیت کے ٹیسٹ" }, icon: "FlaskConical" },
+  { title: { en: "To You", ur: "آپ تک" }, text: { en: "Through dealers to every village", ur: "ڈیلرز کے ذریعے ہر گاؤں تک" }, icon: "Truck" },
 ];
 
 // Placeholder testimonials — replace with real farmer feedback.
-export const TESTIMONIALS = [
+export const TESTIMONIALS: { name: L; place: L; crop: L; text: L }[] = [
   {
-    name: "Ch. Muhammad Aslam",
-    place: "Arifwala, Pakpattan",
-    crop: "P-3940",
-    text: "P-3940 lagaya to challi itni lambi aur bhari thi ke poore gaon ne dekha. Waah kya baat hai Open Seeds ki!",
+    name: { en: "Ch. Muhammad Aslam", ur: "چوہدری محمد اسلم" },
+    place: { en: "Arifwala, Pakpattan", ur: "عارف والا، پاکپتن" },
+    crop: same("P-3940"),
+    text: {
+      en: "I planted P-3940 and the cobs were so long and heavy that the whole village came to see. What a seed, Open Seeds!",
+      ur: "P-3940 لگایا تو چھلی اتنی لمبی اور بھاری تھی کہ پورے گاؤں نے دیکھی۔ واہ کیا بات ہے اوپن سیڈز کی!",
+    },
   },
   {
-    name: "Rana Imran",
-    place: "Sahiwal",
-    crop: "P-3940",
-    text: "Tanna mazboot tha, aandhi mein bhi fasal kharri rahi. Agle saal bhi yehi beej lagaunga.",
+    name: { en: "Rana Imran", ur: "رانا عمران" },
+    place: { en: "Sahiwal", ur: "ساہیوال" },
+    crop: same("P-3940"),
+    text: {
+      en: "The stalk was strong — the crop stayed standing even in a storm. I'll plant the same seed again next year.",
+      ur: "تنا مضبوط تھا، آندھی میں بھی فصل کھڑی رہی۔ اگلے سال بھی یہی بیج لگاؤں گا۔",
+    },
   },
   {
-    name: "Malik Tariq",
-    place: "Okara",
-    crop: "Paddy Seed",
-    text: "Nursery bilkul yaksan nikli aur daana lamba tha. Mandi mein achi qeemat mili.",
+    name: { en: "Malik Tariq", ur: "ملک طارق" },
+    place: { en: "Okara", ur: "اوکاڑہ" },
+    crop: { en: "Paddy Seed", ur: "دھان کا بیج" },
+    text: {
+      en: "The nursery came up perfectly even and the grain was long. I got a good price at the mandi.",
+      ur: "پنیری بالکل یکساں نکلی اور دانہ لمبا تھا۔ منڈی میں اچھی قیمت ملی۔",
+    },
   },
   {
-    name: "Haji Abdul Ghafoor",
-    place: "Vehari",
-    crop: "Sesame",
-    text: "Til ki fasal kam pani mein bhi achi rahi. Open Seeds ki team ne poori rehnumai ki.",
-  },
-];
-
-export const TIMELINE = [
-  { year: "Shuruaat", title: "Bunyaad", text: "Arifwala mein kisaanon ki khidmat ke jazbe ke sath Open Seeds ki bunyaad rakhi gayi." },
-  { year: "Factory", title: "Processing Plant", text: "Pakpattan Road, Qaboola par jadeed seed processing aur packing unit qaim kiya gaya." },
-  { year: "P-3940", title: "Flagship Launch", text: "P-3940 hybrid corn launch hua aur zameendaron ka bharosa jeeta." },
-  { year: "Lahore", title: "Corporate Office", text: "Bahria Town Lahore mein corporate office — marketing aur international business." },
-  { year: "P-1881", title: "Nayi Variety", text: "Naya hybrid P-1881 market mein — agle darje ki paidawar." },
-];
-
-export const FAQS = [
-  {
-    q: "Open Seeds ke products kahan se milenge?",
-    a: "Hamare authorized dealers Punjab aur Sindh ke mukhtalif districts mein maujood hain. Apne qareebi dealer ke liye WhatsApp ya phone par rabta karein.",
-  },
-  {
-    q: "Corn ki bowai ka sahi waqt kya hai?",
-    a: "Spring corn ke liye January ke akhir se February, aur autumn corn ke liye July ke akhir se August behtareen waqt hai. Apne ilaqe ke mutabiq hamari field team se mashwara karein.",
-  },
-  {
-    q: "Kya main Open Seeds ka dealer ban sakta hoon?",
-    a: "Ji haan! Contact page par form bharein ya WhatsApp par 'Dealership' likh kar bhejein, hamari team aap se rabta karegi.",
-  },
-  {
-    q: "Beej ki quality ki guarantee kya hai?",
-    a: "Har lot ka germination, genetic purity aur moisture test hota hai. Bag par lot number aur QR code maujood hai jis se aap verify kar sakte hain.",
+    name: { en: "Haji Abdul Ghafoor", ur: "حاجی عبدالغفور" },
+    place: { en: "Vehari", ur: "وہاڑی" },
+    crop: { en: "Sesame", ur: "تل" },
+    text: {
+      en: "The sesame crop did well even with little water. The Open Seeds team guided us all the way.",
+      ur: "تل کی فصل کم پانی میں بھی اچھی رہی۔ اوپن سیڈز کی ٹیم نے پوری رہنمائی کی۔",
+    },
   },
 ];
 
-export const DOWNLOADS = [
-  { title: "Open Seeds Product Banner", type: "JPG", size: "Banner", file: "/images/banner.jpg" },
-  { title: "P-3940 / P-1881 Standee", type: "JPG", size: "Standee", file: "/images/standee.jpg" },
-  { title: "P-3940 Hybrid Corn — Bag", type: "JPG", size: "Packaging", file: "/images/corn-p3940.jpg" },
-  { title: "Paddy Seed — Bag", type: "JPG", size: "Packaging", file: "/images/paddy-seed.jpg" },
-  { title: "Sesame Seed — Bag", type: "JPG", size: "Packaging", file: "/images/sesame-seed.jpg" },
-  { title: "Open Seeds Logo", type: "JPG", size: "Brand", file: "/images/logo.jpg" },
+export const TIMELINE: { year: L; title: L; text: L }[] = [
+  {
+    year: { en: "The Beginning", ur: "آغاز" },
+    title: { en: "Foundation", ur: "بنیاد" },
+    text: { en: "Open Seeds was founded in Arifwala with a passion for serving farmers.", ur: "عارف والا میں کسانوں کی خدمت کے جذبے کے ساتھ اوپن سیڈز کی بنیاد رکھی گئی۔" },
+  },
+  {
+    year: { en: "Factory", ur: "فیکٹری" },
+    title: { en: "Processing Plant", ur: "پروسیسنگ پلانٹ" },
+    text: { en: "A modern seed processing and packing unit was set up on Pakpattan Road, Qaboola.", ur: "پاکپتن روڈ، قبولہ پر جدید سیڈ پروسیسنگ اور پیکنگ یونٹ قائم کیا گیا۔" },
+  },
+  {
+    year: same("P-3940"),
+    title: { en: "Flagship Launch", ur: "فلیگ شپ لانچ" },
+    text: { en: "P-3940 hybrid corn launched and won farmers' trust.", ur: "P-3940 ہائبرڈ مکئی لانچ ہوئی اور زمینداروں کا بھروسہ جیتا۔" },
+  },
+  {
+    year: { en: "Lahore", ur: "لاہور" },
+    title: { en: "Corporate Office", ur: "کارپوریٹ آفس" },
+    text: { en: "Corporate office in Bahria Town, Lahore — marketing and international business.", ur: "بحریہ ٹاؤن لاہور میں کارپوریٹ آفس — مارکیٹنگ اور بین الاقوامی کاروبار۔" },
+  },
+  {
+    year: same("P-1881"),
+    title: { en: "New Variety", ur: "نئی قسم" },
+    text: { en: "The new hybrid P-1881 reaches the market — next-level yield.", ur: "نئی ہائبرڈ P-1881 مارکیٹ میں — اگلے درجے کی پیداوار۔" },
+  },
 ];
 
-export const GALLERY = [
-  { src: "/images/banner.jpg", alt: "Open Seeds P-3940 aur P-1881 banner", tag: "Products", wide: true },
-  { src: IMG.cornRows, alt: "Corn ki hari bhari fasal", tag: "Fields" },
-  { src: "/images/corn-p3940.jpg", alt: "P-3940 hybrid corn bag", tag: "Products" },
-  { src: IMG.harvest, alt: "Kisaan fasal ki kataai karte hue", tag: "Farmers" },
-  { src: IMG.cornCobs, alt: "Taaza corn challiyan", tag: "Fields" },
-  { src: "/images/standee.jpg", alt: "Open Seeds standee", tag: "Events" },
-  { src: IMG.greenhouseLarge, alt: "Research greenhouse", tag: "R&D" },
-  { src: "/images/paddy-seed.jpg", alt: "Paddy seed bag", tag: "Products" },
-  { src: IMG.sprayer, alt: "Field mein spray karte hue", tag: "Farmers" },
-  { src: IMG.seedlingPots, alt: "Seedling trials", tag: "R&D" },
-  { src: "/images/sesame-seed.jpg", alt: "Sesame seed bag", tag: "Products" },
-  { src: IMG.tractor, alt: "Tractor field mein", tag: "Fields" },
-  { src: IMG.handSeedling, alt: "Nursery mein paude lagate hue", tag: "R&D" },
-  { src: IMG.fieldSunset, alt: "Shaam ke waqt hari fasal", tag: "Fields" },
-  { src: IMG.farmerWorking, alt: "Kisaan khet mein kaam karte hue", tag: "Farmers" },
+export const FAQS: { q: L; a: L }[] = [
+  {
+    q: { en: "Where can I buy Open Seeds products?", ur: "اوپن سیڈز کی مصنوعات کہاں سے ملیں گی؟" },
+    a: {
+      en: "Our authorized dealers are present in districts across Punjab and Sindh. Contact us on WhatsApp or by phone to find your nearest dealer.",
+      ur: "ہمارے مجاز ڈیلرز پنجاب اور سندھ کے مختلف اضلاع میں موجود ہیں۔ اپنے قریبی ڈیلر کے لیے واٹس ایپ یا فون پر رابطہ کریں۔",
+    },
+  },
+  {
+    q: { en: "When is the right time to sow corn?", ur: "مکئی کی بوائی کا صحیح وقت کیا ہے؟" },
+    a: {
+      en: "For spring corn, late January to February is best; for autumn corn, late July to August. Ask our field team for advice specific to your area.",
+      ur: "بہاریہ مکئی کے لیے جنوری کے آخر سے فروری، اور خزاں کی مکئی کے لیے جولائی کے آخر سے اگست بہترین وقت ہے۔ اپنے علاقے کے مطابق ہماری فیلڈ ٹیم سے مشورہ کریں۔",
+    },
+  },
+  {
+    q: { en: "Can I become an Open Seeds dealer?", ur: "کیا میں اوپن سیڈز کا ڈیلر بن سکتا ہوں؟" },
+    a: {
+      en: "Yes! Fill in the form on the Contact page or send 'Dealership' on WhatsApp, and our team will get in touch with you.",
+      ur: "جی ہاں! رابطہ کے صفحے پر فارم بھریں یا واٹس ایپ پر 'ڈیلرشپ' لکھ کر بھیجیں، ہماری ٹیم آپ سے رابطہ کرے گی۔",
+    },
+  },
+  {
+    q: { en: "How is seed quality guaranteed?", ur: "بیج کے معیار کی ضمانت کیا ہے؟" },
+    a: {
+      en: "Every lot is tested for germination, genetic purity and moisture. Each bag carries a lot number and a QR code you can use to verify it.",
+      ur: "ہر لاٹ کا اگاؤ، جینیاتی خالصیت اور نمی کا ٹیسٹ ہوتا ہے۔ بیگ پر لاٹ نمبر اور QR کوڈ موجود ہے جس سے آپ تصدیق کر سکتے ہیں۔",
+    },
+  },
+];
+
+export const DOWNLOADS: { title: L; type: string; size: L; file: string }[] = [
+  { title: { en: "Open Seeds Product Banner", ur: "اوپن سیڈز پروڈکٹ بینر" }, type: "JPG", size: { en: "Banner", ur: "بینر" }, file: "/images/banner.jpg" },
+  { title: { en: "P-3940 / P-1881 Standee", ur: "P-3940 / P-1881 اسٹینڈی" }, type: "JPG", size: { en: "Standee", ur: "اسٹینڈی" }, file: "/images/standee.jpg" },
+  { title: { en: "P-3940 Hybrid Corn — Bag", ur: "P-3940 ہائبرڈ مکئی — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/corn-p3940.jpg" },
+  { title: { en: "Paddy Seed — Bag", ur: "دھان کا بیج — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/paddy-seed.jpg" },
+  { title: { en: "Sesame Seed — Bag", ur: "تل کا بیج — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/sesame-seed.jpg" },
+  { title: { en: "Open Seeds Logo", ur: "اوپن سیڈز لوگو" }, type: "JPG", size: { en: "Brand", ur: "برانڈ" }, file: "/images/logo.jpg" },
+];
+
+export const GALLERY_TAGS: Record<string, L> = {
+  Products: { en: "Products", ur: "مصنوعات" },
+  Fields: { en: "Fields", ur: "کھیت" },
+  Farmers: { en: "Farmers", ur: "کسان" },
+  Events: { en: "Events", ur: "تقریبات" },
+  "R&D": { en: "R&D", ur: "تحقیق" },
+};
+
+export const GALLERY: { src: string; alt: L; tag: keyof typeof GALLERY_TAGS; wide?: boolean }[] = [
+  { src: "/images/banner.jpg", alt: { en: "Open Seeds P-3940 and P-1881 banner", ur: "اوپن سیڈز P-3940 اور P-1881 بینر" }, tag: "Products", wide: true },
+  { src: IMG.cornRows, alt: { en: "A lush green corn crop", ur: "مکئی کی ہری بھری فصل" }, tag: "Fields" },
+  { src: "/images/corn-p3940.jpg", alt: { en: "P-3940 hybrid corn bag", ur: "P-3940 ہائبرڈ مکئی کا بیگ" }, tag: "Products" },
+  { src: IMG.harvest, alt: { en: "Farmers harvesting the crop", ur: "کسان فصل کی کٹائی کرتے ہوئے" }, tag: "Farmers" },
+  { src: IMG.cornCobs, alt: { en: "Fresh corn cobs", ur: "تازہ مکئی کی چھلیاں" }, tag: "Fields" },
+  { src: "/images/standee.jpg", alt: { en: "Open Seeds standee", ur: "اوپن سیڈز اسٹینڈی" }, tag: "Events" },
+  { src: IMG.greenhouseLarge, alt: { en: "Research greenhouse", ur: "تحقیقی گرین ہاؤس" }, tag: "R&D" },
+  { src: "/images/paddy-seed.jpg", alt: { en: "Paddy seed bag", ur: "دھان کے بیج کا بیگ" }, tag: "Products" },
+  { src: IMG.sprayer, alt: { en: "Spraying in the field", ur: "کھیت میں اسپرے کرتے ہوئے" }, tag: "Farmers" },
+  { src: IMG.seedlingPots, alt: { en: "Seedling trials", ur: "پنیری کے تجربات" }, tag: "R&D" },
+  { src: "/images/sesame-seed.jpg", alt: { en: "Sesame seed bag", ur: "تل کے بیج کا بیگ" }, tag: "Products" },
+  { src: IMG.tractor, alt: { en: "Tractor in the field", ur: "کھیت میں ٹریکٹر" }, tag: "Fields" },
+  { src: IMG.handSeedling, alt: { en: "Planting seedlings in the nursery", ur: "نرسری میں پودے لگاتے ہوئے" }, tag: "R&D" },
+  { src: IMG.fieldSunset, alt: { en: "Green crop at dusk", ur: "شام کے وقت ہری فصل" }, tag: "Fields" },
+  { src: IMG.farmerWorking, alt: { en: "Farmer working in the field", ur: "کسان کھیت میں کام کرتے ہوئے" }, tag: "Farmers" },
 ];

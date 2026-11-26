@@ -6,12 +6,42 @@ export const metadata: Metadata = { title: "Privacy Policy" };
 
 export default function Privacy() {
   return (
-    <LegalPage title="Privacy Policy" urdu="رازداری کی پالیسی" sections={[
-      { h: "Maloomat jo hum jama karte hain", p: "Jab aap contact form bharte hain ya WhatsApp par rabta karte hain to hum aap ka naam, phone number, shehar aur paigham hasil karte hain." },
-      { h: "Maloomat ka istemal", p: "Yeh maloomat sirf aap ke sawal ka jawab dene, product ki maloomat dene aur dealership ke silsile mein rabta karne ke liye istemal hoti hai." },
-      { h: "Maloomat ka tahaffuz", p: "Hum aap ki zaati maloomat kisi teesre fareeq ko farokht ya share nahi karte, siwaye qanooni taqazon ke." },
-      { h: "Cookies", p: "Website sirf aap ki theme (light/dark) ki pasand browser mein mehfooz karti hai. Koi tracking cookies istemal nahi ki jatin." },
-      { h: "Rabta", p: `Privacy se mutaliq kisi bhi sawal ke liye ${SITE.email} par email karein.` },
+    <LegalPage title={{ en: "Privacy Policy", ur: "رازداری کی پالیسی" }} sections={[
+      {
+        h: { en: "Information we collect", ur: "معلومات جو ہم جمع کرتے ہیں" },
+        p: {
+          en: "When you fill in the contact form or reach us on WhatsApp, we receive your name, phone number, city and message.",
+          ur: "جب آپ رابطہ فارم بھرتے ہیں یا واٹس ایپ پر رابطہ کرتے ہیں تو ہم آپ کا نام، فون نمبر، شہر اور پیغام حاصل کرتے ہیں۔",
+        },
+      },
+      {
+        h: { en: "How we use it", ur: "معلومات کا استعمال" },
+        p: {
+          en: "This information is used only to answer your questions, share product information and contact you about dealerships.",
+          ur: "یہ معلومات صرف آپ کے سوال کا جواب دینے، مصنوعات کی معلومات دینے اور ڈیلرشپ کے سلسلے میں رابطہ کرنے کے لیے استعمال ہوتی ہیں۔",
+        },
+      },
+      {
+        h: { en: "Protecting your information", ur: "معلومات کا تحفظ" },
+        p: {
+          en: "We do not sell or share your personal information with any third party, except where required by law.",
+          ur: "ہم آپ کی ذاتی معلومات کسی تیسرے فریق کو فروخت یا شیئر نہیں کرتے، سوائے قانونی تقاضوں کے۔",
+        },
+      },
+      {
+        h: { en: "Cookies", ur: "کوکیز" },
+        p: {
+          en: "The website only stores your theme (light/dark) and language preference in your browser. No tracking cookies are used.",
+          ur: "ویب سائٹ صرف آپ کی تھیم (لائٹ/ڈارک) اور زبان کی پسند آپ کے براؤزر میں محفوظ کرتی ہے۔ کوئی ٹریکنگ کوکیز استعمال نہیں کی جاتیں۔",
+        },
+      },
+      {
+        h: { en: "Contact", ur: "رابطہ" },
+        p: {
+          en: `For any privacy-related question, email us at ${SITE.email}.`,
+          ur: `رازداری سے متعلق کسی بھی سوال کے لیے ${SITE.email} پر ای میل کریں۔`,
+        },
+      },
     ]} />
   );
 }

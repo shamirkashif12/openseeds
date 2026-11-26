@@ -4,32 +4,33 @@ import { Dna, FlaskConical, Microscope, Sprout, Sun, Droplets } from "lucide-rea
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
+import T from "@/components/T";
 import { IMG } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Research & Development" };
 
 const AREAS = [
-  { I: Dna, title: "Plant Breeding", text: "Behtar parental lines ka intikhab aur naye hybrids ki tayyari." },
-  { I: Microscope, title: "Seed Testing Lab", text: "Germination, vigor, genetic purity aur moisture ke tests." },
-  { I: Sprout, title: "Multi-location Trials", text: "Punjab aur Sindh ke mukhtalif ilaqon mein field performance testing." },
-  { I: Sun, title: "Climate Resilience", text: "Garmi, khushk-saali aur aandhi bardasht karne wali varieties par kaam." },
-  { I: Droplets, title: "Water Efficiency", text: "Kam pani mein zyada paidawar dene wale genotypes ki talaash." },
-  { I: FlaskConical, title: "Seed Treatment", text: "Fungicide aur insecticide treatment se beej ka shuruaati tahaffuz." },
+  { I: Dna, title: { en: "Plant Breeding", ur: "پلانٹ بریڈنگ" }, text: { en: "Selecting better parent lines and developing new hybrids.", ur: "بہتر پیرنٹل لائنز کا انتخاب اور نئے ہائبرڈز کی تیاری۔" } },
+  { I: Microscope, title: { en: "Seed Testing Lab", ur: "بیج ٹیسٹنگ لیب" }, text: { en: "Tests for germination, vigour, genetic purity and moisture.", ur: "اگاؤ، طاقت، جینیاتی خالصیت اور نمی کے ٹیسٹ۔" } },
+  { I: Sprout, title: { en: "Multi-location Trials", ur: "کثیر مقامی تجربات" }, text: { en: "Field performance testing across different regions of Punjab and Sindh.", ur: "پنجاب اور سندھ کے مختلف علاقوں میں کھیت میں کارکردگی کی جانچ۔" } },
+  { I: Sun, title: { en: "Climate Resilience", ur: "موسمی لچک" }, text: { en: "Developing varieties that withstand heat, drought and storms.", ur: "گرمی، خشک سالی اور آندھی برداشت کرنے والی اقسام پر کام۔" } },
+  { I: Droplets, title: { en: "Water Efficiency", ur: "پانی کی بچت" }, text: { en: "Finding genotypes that give more yield with less water.", ur: "کم پانی میں زیادہ پیداوار دینے والے جینوٹائپس کی تلاش۔" } },
+  { I: FlaskConical, title: { en: "Seed Treatment", ur: "بیج کی ٹریٹمنٹ" }, text: { en: "Fungicide and insecticide treatment to protect the seed from the start.", ur: "فنجی سائیڈ اور کیڑے مار ٹریٹمنٹ سے بیج کا ابتدائی تحفظ۔" } },
 ];
 
 const STEPS = [
-  ["Germplasm Collection", "Mulki aur ghair-mulki behtareen germplasm ka zakheera."],
-  ["Hybrid Development", "Crossing aur selection se naye hybrid combinations."],
-  ["Station Trials", "Research station par ibtidai performance jaanch."],
-  ["Farmer Field Trials", "Asal kisaan ke khet mein — asal halaat mein test."],
-  ["Commercial Launch", "Kamyab varieties certified ho kar market mein."],
+  { t: { en: "Germplasm Collection", ur: "جرم پلازم کا ذخیرہ" }, d: { en: "Building a collection of the best local and international germplasm.", ur: "ملکی اور غیر ملکی بہترین جرم پلازم کا ذخیرہ۔" } },
+  { t: { en: "Hybrid Development", ur: "ہائبرڈ کی تیاری" }, d: { en: "New hybrid combinations through crossing and selection.", ur: "کراسنگ اور انتخاب سے نئے ہائبرڈ امتزاج۔" } },
+  { t: { en: "Station Trials", ur: "اسٹیشن ٹرائلز" }, d: { en: "Initial performance testing at the research station.", ur: "ریسرچ اسٹیشن پر ابتدائی کارکردگی کی جانچ۔" } },
+  { t: { en: "Farmer Field Trials", ur: "کسان کے کھیت میں تجربات" }, d: { en: "Tested in real farmers' fields, under real conditions.", ur: "اصل کسان کے کھیت میں — اصل حالات میں ٹیسٹ۔" } },
+  { t: { en: "Commercial Launch", ur: "تجارتی لانچ" }, d: { en: "Successful varieties are certified and brought to market.", ur: "کامیاب اقسام تصدیق کے بعد مارکیٹ میں۔" } },
 ];
 
 export default function RnD() {
   return (
     <>
-      <PageHero title="Research & Development" urdu="تحقیق و ترقی" crumb="Research & Development" image={IMG.greenhouseLarge}
-        subtitle="Science aur tajurbe ka milaap — har season behtar beej." />
+      <PageHero title={{ en: "Research & Development", ur: "تحقیق و ترقی" }} image={IMG.greenhouseLarge}
+        subtitle={{ en: "Science and experience combined — better seed every season.", ur: "سائنس اور تجربے کا ملاپ — ہر موسم بہتر بیج۔" }} />
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2">
         <Reveal dir="left" className="relative h-[460px]">
@@ -39,28 +40,38 @@ export default function RnD() {
           </div>
         </Reveal>
         <Reveal dir="right">
-          <span className="text-sm font-semibold uppercase tracking-widest text-leaf-600 dark:text-leaf">Innovation</span>
-          <h2 className="mt-2 text-3xl font-bold md:text-5xl">Research jo <span className="text-gradient">Khet mein</span> Nazar Aaye</h2>
+          <span className="text-sm font-semibold uppercase tracking-widest text-leaf-600 dark:text-leaf"><T en="Innovation" ur="جدت" /></span>
+          <h2 className="mt-2 text-3xl font-bold md:text-5xl">
+            <T
+              en={<>Research You Can See <span className="text-gradient">in the Field</span></>}
+              ur={<>تحقیق جو <span className="text-gradient">کھیت میں</span> نظر آئے</>}
+            />
+          </h2>
           <p className="mt-4 text-muted">
-            Open Seeds ki R&D team mukhtalif mausami halaat mein hybrids ko test karti hai taake sirf woh varieties kisaan tak pohanchein jo
-            har haal mein behtar nataij dein. P-3940 aur P-1881 isi mehnat ka phal hain.
+            <T
+              en="The Open Seeds R&D team tests hybrids under different weather conditions so that only varieties that perform well in every situation reach the farmer. P-3940 and P-1881 are the fruit of this work."
+              ur="اوپن سیڈز کی تحقیقی ٹیم مختلف موسمی حالات میں ہائبرڈز کو ٹیسٹ کرتی ہے تاکہ صرف وہ اقسام کسان تک پہنچیں جو ہر حال میں بہتر نتائج دیں۔ P-3940 اور P-1881 اسی محنت کا پھل ہیں۔"
+            />
           </p>
           <p className="mt-3 text-muted">
-            Hamari tawajjoh zyada paidawar, bimariyon se bachao, aur badalte mausam (climate change) ke mutabiq resilient beej par hai.
+            <T
+              en="Our focus is on higher yield, disease protection, and seed that stays resilient as the climate changes."
+              ur="ہماری توجہ زیادہ پیداوار، بیماریوں سے بچاؤ، اور بدلتے موسم کے مطابق مضبوط بیج پر ہے۔"
+            />
           </p>
         </Reveal>
       </section>
 
       <section className="bg-bg-alt py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionTitle eyebrow="Focus Areas" title="Hamare Research Shobay" />
+          <SectionTitle eyebrow={{ en: "Focus Areas", ur: "توجہ کے شعبے" }} title={{ en: "Our Research Areas", ur: "ہمارے تحقیقی شعبے" }} />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {AREAS.map(({ I, title, text }, k) => (
-              <Reveal key={title} dir={["left", "up", "right"][k % 3] as "left" | "up" | "right"} delay={(k % 3) * 0.1}>
+              <Reveal key={title.en} dir={["left", "up", "right"][k % 3] as "left" | "up" | "right"} delay={(k % 3) * 0.1}>
                 <div className="card group h-full rounded-3xl p-7 transition hover:-translate-y-2 hover:border-globe">
                   <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-globe to-sky text-white transition group-hover:scale-110"><I size={26} /></span>
-                  <h3 className="mt-4 text-xl font-semibold">{title}</h3>
-                  <p className="mt-2 text-muted">{text}</p>
+                  <h3 className="mt-4 text-xl font-semibold"><T {...title} /></h3>
+                  <p className="mt-2 text-muted"><T {...text} /></p>
                 </div>
               </Reveal>
             ))}
@@ -69,13 +80,17 @@ export default function RnD() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-24 sm:px-6">
-        <SectionTitle eyebrow="Pipeline" title="Ek Variety ka Safar" text="Lab se market tak har variety in marahil se guzarti hai." />
+        <SectionTitle
+          eyebrow={{ en: "Pipeline", ur: "مراحل" }}
+          title={{ en: "The Journey of a Variety", ur: "ایک قسم کا سفر" }}
+          text={{ en: "From lab to market, every variety goes through these stages.", ur: "لیب سے مارکیٹ تک ہر قسم ان مراحل سے گزرتی ہے۔" }}
+        />
         <ol className="space-y-5">
-          {STEPS.map(([t, d], k) => (
-            <Reveal key={t} dir={k % 2 ? "right" : "left"}>
+          {STEPS.map(({ t, d }, k) => (
+            <Reveal key={t.en} dir={k % 2 ? "right" : "left"}>
               <li className="card flex items-center gap-5 rounded-2xl p-5">
                 <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-leaf to-leaf-600 text-xl font-extrabold text-white">{k + 1}</span>
-                <div><h3 className="text-lg font-semibold">{t}</h3><p className="text-muted">{d}</p></div>
+                <div><h3 className="text-lg font-semibold"><T {...t} /></h3><p className="text-muted"><T {...d} /></p></div>
               </li>
             </Reveal>
           ))}

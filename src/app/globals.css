@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Brand palette taken from the Open Seeds logo:
+   leaf green, globe blue, ribbon red, corn gold */
+:root {
+  --font-poppins: "Poppins", system-ui, sans-serif;
+  --font-nastaliq: "Noto Nastaliq Urdu", serif;
+  --bg: #f7faf5;
+  --bg-alt: #eef5ea;
+  --card: #ffffff;
+  --fg: #10231a;
+  --muted: #55675d;
+  --border: #dbe7d6;
+  --shadow: 0 10px 30px -12px rgb(16 35 26 / 0.18);
+}
+
+.dark {
+  --bg: #08120d;
+  --bg-alt: #0d1b14;
+  --card: #11231a;
+  --fg: #e8f3ec;
+  --muted: #9db3a6;
+  --border: #1f3a2c;
+  --shadow: 0 10px 30px -12px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-card: var(--card);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+
+  --color-leaf: #5bb318;
+  --color-leaf-600: #3f9a12;
+  --color-leaf-800: #1f5f12;
+  --color-globe: #0a6ebd;
+  --color-sky: #29a3e6;
+  --color-ribbon: #c8102e;
+  --color-corn: #f6a609;
+
+  --font-sans: var(--font-poppins);
+  --font-urdu: var(--font-nastaliq);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.urdu {
+  font-family: var(--font-nastaliq), serif;
+  direction: rtl;
+  line-height: 2.1;
+}
+
+@layer components {
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #5bb318, #0a6ebd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #3f9a12, #5bb318);
+  box-shadow: 0 10px 24px -10px rgb(91 179 24 / 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -10px rgb(91 179 24 / 0.9);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid currentColor;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.btn-outline:hover {
+  transform: translateY(-2px);
+}
+}
+
+/* Slow zoom on hero backgrounds */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+.kenburns {
+  animation: kenburns 9s ease-out forwards;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  animation: pulse-ring 1.8s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .floaty, .marquee, .pulse-ring::before { animation: none; }
+  html { scroll-behavior: auto; }
+}

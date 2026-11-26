@@ -37,7 +37,7 @@ export default function ContactForm() {
     const f = new FormData(e.currentTarget);
     const subject = SUBJECTS.find((s) => s.en === f.get("subject"));
     const values = [f.get("name"), f.get("phone"), f.get("city"), subject?.[lang], f.get("message")];
-    const msg = [`*Open Seeds Website Inquiry*`, ...t.labels.map((l, k) => `${l}: ${values[k] ?? ""}`)].join("\n");
+    const msg = [`*Open Seed International Website Inquiry*`, ...t.labels.map((l, k) => `${l}: ${values[k] ?? ""}`)].join("\n");
     window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
     setSent(true);
     e.currentTarget.reset();

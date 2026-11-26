@@ -9,7 +9,7 @@ const FONTS =
   "https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap";
 
 export const metadata: Metadata = {
-  title: { default: "Open Seeds | Growing Together", template: "%s | Open Seeds" },
+  title: { default: "Open Seed International | Growing Together", template: "%s | Open Seed International" },
   description:
     "Open Seed International Agro Crop Sciences — hybrid corn (P-3940, P-1881), paddy and sesame seeds for Pakistan's farmers.",
   icons: { icon: "/images/logo.jpg" },

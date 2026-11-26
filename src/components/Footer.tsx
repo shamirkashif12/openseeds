@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <div>
                 <h3 className="text-2xl font-bold md:text-3xl"><T en="Want to become a dealer?" ur="ڈیلر بننا چاہتے ہیں؟" /></h3>
-                <p className="mt-1 text-white/90"><T en="Join the Open Seeds network and bring the best seed to farmers in your area." ur="اوپن سیڈز نیٹ ورک کا حصہ بنیں — اپنے علاقے کے کسانوں تک بہترین بیج پہنچائیں۔" /></p>
+                <p className="mt-1 text-white/90"><T en="Join the Open Seed International network and bring the best seed to farmers in your area." ur="اوپن سیڈ انٹرنیشنل نیٹ ورک کا حصہ بنیں — اپنے علاقے کے کسانوں تک بہترین بیج پہنچائیں۔" /></p>
               </div>
               <Link href="/contact" className="shrink-0 rounded-full bg-white px-6 py-3 font-semibold text-leaf-800 transition hover:scale-105 hover:bg-corn hover:text-white">
                 <T en="Contact Us Now" ur="ابھی رابطہ کریں" />

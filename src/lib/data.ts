@@ -34,7 +34,7 @@ export const IMG = {
 };
 
 export const SITE = {
-  name: "Open Seeds",
+  name: "Open Seed International",
   legalName: "Open Seed International Agro Crop Sciences (Pvt) Ltd.",
   legalNameUrdu: "اوپن سیڈ انٹرنیشنل ایگرو کراپ سائنسز (پرائیویٹ لمیٹڈ)",
   tagline: "Growing Together",
@@ -60,7 +60,7 @@ export const URDU = {
   slogan1: "واہ کیا بات ہے اوپن سیڈز کی",
   slogan2: "اب ہوں گے ہمارے خواب پورے",
   trust: "اوپن سیڈ انٹرنیشنل پر بھروسہ، بہتر مستقبل کی ضمانت",
-  farmers: "سب زمینداروں کا اعتماد صرف اوپن سیڈز",
+  farmers: "سب زمینداروں کا اعتماد صرف اوپن سیڈ انٹرنیشنل کمپنی",
 };
 
 export const NAV: { href: string; label: L }[] = [
@@ -168,8 +168,8 @@ export const PRODUCTS: Product[] = [
       ur: "لمبی چھلی، بھاری دانہ — ہر زمیندار کی پہلی پسند۔",
     },
     description: {
-      en: "P-3940 is Open Seeds' flagship hybrid corn variety: a strong stalk, long and fully filled cobs, and bright orange-yellow grain. Suited to both the spring and autumn seasons.",
-      ur: "P-3940 اوپن سیڈز کی فلیگ شپ ہائبرڈ مکئی کی قسم ہے۔ مضبوط تنا، لمبی اور مکمل بھری ہوئی چھلی، اور چمکدار نارنجی پیلا دانہ۔ بہار اور خزاں دونوں موسموں کے لیے موزوں۔",
+      en: "P-3940 is Open Seed International's flagship hybrid corn variety: a strong stalk, long and fully filled cobs, and bright orange-yellow grain. Suited to both the spring and autumn seasons.",
+      ur: "P-3940 اوپن سیڈ انٹرنیشنل کی فلیگ شپ ہائبرڈ مکئی کی قسم ہے۔ مضبوط تنا، لمبی اور مکمل بھری ہوئی چھلی، اور چمکدار نارنجی پیلا دانہ۔ بہار اور خزاں دونوں موسموں کے لیے موزوں۔",
     },
     features: [
       { en: "High yield potential", ur: "زیادہ پیداوار کی صلاحیت" },
@@ -229,8 +229,8 @@ export const PRODUCTS: Product[] = [
       ur: "صاف ستھرا، تصدیق شدہ دھان کا بیج — بہتر منافع۔",
     },
     description: {
-      en: "Open Seeds paddy seed is selected, cleaned and graded for the rice-growing areas of Punjab and Sindh. Long grain, good milling and a better price in the market.",
-      ur: "اوپن سیڈز کا دھان کا بیج چنا ہوا، صاف اور گریڈ شدہ ہے جو پنجاب اور سندھ کے چاول کے علاقوں کے لیے موزوں ہے۔ لمبا دانہ، اچھی ملنگ اور مارکیٹ میں بہتر قیمت۔",
+      en: "Paddy seed from Open Seed International is selected, cleaned and graded for the rice-growing areas of Punjab and Sindh. Long grain, good milling and a better price in the market.",
+      ur: "اوپن سیڈ انٹرنیشنل کا دھان کا بیج چنا ہوا، صاف اور گریڈ شدہ ہے جو پنجاب اور سندھ کے چاول کے علاقوں کے لیے موزوں ہے۔ لمبا دانہ، اچھی ملنگ اور مارکیٹ میں بہتر قیمت۔",
     },
     features: [
       { en: "Graded and clean seed", ur: "گریڈ شدہ اور صاف بیج" },
@@ -257,8 +257,8 @@ export const PRODUCTS: Product[] = [
       ur: "کم خرچ، کم پانی — تل کی فصل سے بہتر آمدنی۔",
     },
     description: {
-      en: "Sesame is a cash oil-seed crop. Open Seeds sesame seed gives more capsules, a higher oil content and a good yield with less water.",
-      ur: "تل ایک نقد آور تیل دار فصل ہے۔ اوپن سیڈز کا تل کا بیج زیادہ پھلیاں، تیل کی بہتر مقدار اور کم پانی میں اچھی پیداوار دیتا ہے۔",
+      en: "Sesame is a cash oil-seed crop. Sesame seed from Open Seed International gives more capsules, a higher oil content and a good yield with less water.",
+      ur: "تل ایک نقد آور تیل دار فصل ہے۔ اوپن سیڈ انٹرنیشنل کا تل کا بیج زیادہ پھلیاں، تیل کی بہتر مقدار اور کم پانی میں اچھی پیداوار دیتا ہے۔",
     },
     features: [
       { en: "More capsules per plant", ur: "فی پودا زیادہ پھلیاں" },
@@ -333,7 +333,7 @@ export const TESTIMONIALS: { name: L; place: L; crop: L; text: L }[] = [
     place: { en: "Arifwala, Pakpattan", ur: "عارف والا، پاکپتن" },
     crop: same("P-3940"),
     text: {
-      en: "I planted P-3940 and the cobs were so long and heavy that the whole village came to see. What a seed, Open Seeds!",
+      en: "I planted P-3940 and the cobs were so long and heavy that the whole village came to see. What a seed, Open Seed International!",
       ur: "P-3940 لگایا تو چھلی اتنی لمبی اور بھاری تھی کہ پورے گاؤں نے دیکھی۔ واہ کیا بات ہے اوپن سیڈز کی!",
     },
   },
@@ -360,8 +360,8 @@ export const TESTIMONIALS: { name: L; place: L; crop: L; text: L }[] = [
     place: { en: "Vehari", ur: "وہاڑی" },
     crop: { en: "Sesame", ur: "تل" },
     text: {
-      en: "The sesame crop did well even with little water. The Open Seeds team guided us all the way.",
-      ur: "تل کی فصل کم پانی میں بھی اچھی رہی۔ اوپن سیڈز کی ٹیم نے پوری رہنمائی کی۔",
+      en: "The sesame crop did well even with little water. The Open Seed International team guided us all the way.",
+      ur: "تل کی فصل کم پانی میں بھی اچھی رہی۔ اوپن سیڈ انٹرنیشنل کی ٹیم نے پوری رہنمائی کی۔",
     },
   },
 ];
@@ -370,7 +370,7 @@ export const TIMELINE: { year: L; title: L; text: L }[] = [
   {
     year: { en: "The Beginning", ur: "آغاز" },
     title: { en: "Foundation", ur: "بنیاد" },
-    text: { en: "Open Seeds was founded in Arifwala with a passion for serving farmers.", ur: "عارف والا میں کسانوں کی خدمت کے جذبے کے ساتھ اوپن سیڈز کی بنیاد رکھی گئی۔" },
+    text: { en: "Open Seed International was founded in Arifwala with a passion for serving farmers.", ur: "عارف والا میں کسانوں کی خدمت کے جذبے کے ساتھ اوپن سیڈ انٹرنیشنل کی بنیاد رکھی گئی۔" },
   },
   {
     year: { en: "Factory", ur: "فیکٹری" },
@@ -396,7 +396,7 @@ export const TIMELINE: { year: L; title: L; text: L }[] = [
 
 export const FAQS: { q: L; a: L }[] = [
   {
-    q: { en: "Where can I buy Open Seeds products?", ur: "اوپن سیڈز کی مصنوعات کہاں سے ملیں گی؟" },
+    q: { en: "Where can I buy Open Seed International products?", ur: "اوپن سیڈ انٹرنیشنل کی مصنوعات کہاں سے ملیں گی؟" },
     a: {
       en: "Our authorized dealers are present in districts across Punjab and Sindh. Contact us on WhatsApp or by phone to find your nearest dealer.",
       ur: "ہمارے مجاز ڈیلرز پنجاب اور سندھ کے مختلف اضلاع میں موجود ہیں۔ اپنے قریبی ڈیلر کے لیے واٹس ایپ یا فون پر رابطہ کریں۔",
@@ -410,7 +410,7 @@ export const FAQS: { q: L; a: L }[] = [
     },
   },
   {
-    q: { en: "Can I become an Open Seeds dealer?", ur: "کیا میں اوپن سیڈز کا ڈیلر بن سکتا ہوں؟" },
+    q: { en: "Can I become an Open Seed International dealer?", ur: "کیا میں اوپن سیڈ انٹرنیشنل کا ڈیلر بن سکتا ہوں؟" },
     a: {
       en: "Yes! Fill in the form on the Contact page or send 'Dealership' on WhatsApp, and our team will get in touch with you.",
       ur: "جی ہاں! رابطہ کے صفحے پر فارم بھریں یا واٹس ایپ پر 'ڈیلرشپ' لکھ کر بھیجیں، ہماری ٹیم آپ سے رابطہ کرے گی۔",
@@ -426,12 +426,12 @@ export const FAQS: { q: L; a: L }[] = [
 ];
 
 export const DOWNLOADS: { title: L; type: string; size: L; file: string }[] = [
-  { title: { en: "Open Seeds Product Banner", ur: "اوپن سیڈز پروڈکٹ بینر" }, type: "JPG", size: { en: "Banner", ur: "بینر" }, file: "/images/banner.jpg" },
+  { title: { en: "Open Seed International Product Banner", ur: "اوپن سیڈ انٹرنیشنل پروڈکٹ بینر" }, type: "JPG", size: { en: "Banner", ur: "بینر" }, file: "/images/banner.jpg" },
   { title: { en: "P-3940 / P-1881 Standee", ur: "P-3940 / P-1881 اسٹینڈی" }, type: "JPG", size: { en: "Standee", ur: "اسٹینڈی" }, file: "/images/standee.jpg" },
   { title: { en: "P-3940 Hybrid Corn — Bag", ur: "P-3940 ہائبرڈ مکئی — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/corn-p3940.jpg" },
   { title: { en: "Paddy Seed — Bag", ur: "دھان کا بیج — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/paddy-seed.jpg" },
   { title: { en: "Sesame Seed — Bag", ur: "تل کا بیج — بیگ" }, type: "JPG", size: { en: "Packaging", ur: "پیکجنگ" }, file: "/images/sesame-seed.jpg" },
-  { title: { en: "Open Seeds Logo", ur: "اوپن سیڈز لوگو" }, type: "JPG", size: { en: "Brand", ur: "برانڈ" }, file: "/images/logo.jpg" },
+  { title: { en: "Open Seed International Logo", ur: "اوپن سیڈ انٹرنیشنل لوگو" }, type: "JPG", size: { en: "Brand", ur: "برانڈ" }, file: "/images/logo.jpg" },
 ];
 
 export const GALLERY_TAGS: Record<string, L> = {
@@ -443,12 +443,12 @@ export const GALLERY_TAGS: Record<string, L> = {
 };
 
 export const GALLERY: { src: string; alt: L; tag: keyof typeof GALLERY_TAGS; wide?: boolean }[] = [
-  { src: "/images/banner.jpg", alt: { en: "Open Seeds P-3940 and P-1881 banner", ur: "اوپن سیڈز P-3940 اور P-1881 بینر" }, tag: "Products", wide: true },
+  { src: "/images/banner.jpg", alt: { en: "Open Seed International P-3940 and P-1881 banner", ur: "اوپن سیڈ انٹرنیشنل P-3940 اور P-1881 بینر" }, tag: "Products", wide: true },
   { src: IMG.cornRows, alt: { en: "A lush green corn crop", ur: "مکئی کی ہری بھری فصل" }, tag: "Fields" },
   { src: "/images/corn-p3940.jpg", alt: { en: "P-3940 hybrid corn bag", ur: "P-3940 ہائبرڈ مکئی کا بیگ" }, tag: "Products" },
   { src: IMG.harvest, alt: { en: "Farmers harvesting the crop", ur: "کسان فصل کی کٹائی کرتے ہوئے" }, tag: "Farmers" },
   { src: IMG.cornCobs, alt: { en: "Fresh corn cobs", ur: "تازہ مکئی کی چھلیاں" }, tag: "Fields" },
-  { src: "/images/standee.jpg", alt: { en: "Open Seeds standee", ur: "اوپن سیڈز اسٹینڈی" }, tag: "Events" },
+  { src: "/images/standee.jpg", alt: { en: "Open Seed International standee", ur: "اوپن سیڈ انٹرنیشنل اسٹینڈی" }, tag: "Events" },
   { src: IMG.greenhouseLarge, alt: { en: "Research greenhouse", ur: "تحقیقی گرین ہاؤس" }, tag: "R&D" },
   { src: "/images/paddy-seed.jpg", alt: { en: "Paddy seed bag", ur: "دھان کے بیج کا بیگ" }, tag: "Products" },
   { src: IMG.sprayer, alt: { en: "Spraying in the field", ur: "کھیت میں اسپرے کرتے ہوئے" }, tag: "Farmers" },

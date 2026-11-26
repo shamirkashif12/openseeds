@@ -49,8 +49,8 @@ export default function RnD() {
           </h2>
           <p className="mt-4 text-muted">
             <T
-              en="The Open Seeds R&D team tests hybrids under different weather conditions so that only varieties that perform well in every situation reach the farmer. P-3940 and P-1881 are the fruit of this work."
-              ur="اوپن سیڈز کی تحقیقی ٹیم مختلف موسمی حالات میں ہائبرڈز کو ٹیسٹ کرتی ہے تاکہ صرف وہ اقسام کسان تک پہنچیں جو ہر حال میں بہتر نتائج دیں۔ P-3940 اور P-1881 اسی محنت کا پھل ہیں۔"
+              en="The Open Seed International R&D team tests hybrids under different weather conditions so that only varieties that perform well in every situation reach the farmer. P-3940 and P-1881 are the fruit of this work."
+              ur="اوپن سیڈ انٹرنیشنل کی تحقیقی ٹیم مختلف موسمی حالات میں ہائبرڈز کو ٹیسٹ کرتی ہے تاکہ صرف وہ اقسام کسان تک پہنچیں جو ہر حال میں بہتر نتائج دیں۔ P-3940 اور P-1881 اسی محنت کا پھل ہیں۔"
             />
           </p>
           <p className="mt-3 text-muted">

@@ -13,8 +13,8 @@ export function WhatsAppIcon({ size = 28 }: { size?: number }) {
 }
 
 const GREETING = {
-  en: "Hello! I would like information about Open Seeds products.",
-  ur: "السلام علیکم! مجھے اوپن سیڈز کی مصنوعات کے بارے میں معلومات چاہیے۔",
+  en: "Hello! I would like information about Open Seed International products.",
+  ur: "السلام علیکم! مجھے اوپن سیڈ انٹرنیشنل کی مصنوعات کے بارے میں معلومات چاہیے۔",
 };
 
 export default function WhatsAppButton() {

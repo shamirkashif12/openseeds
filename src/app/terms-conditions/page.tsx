@@ -31,8 +31,8 @@ export default function Terms() {
       {
         h: { en: "Intellectual property", ur: "دانشورانہ ملکیت" },
         p: {
-          en: "The Open Seeds name, logo, packaging designs and all content may not be used without our permission.",
-          ur: "اوپن سیڈز کا نام، لوگو، پیکجنگ ڈیزائن اور تمام مواد ہماری اجازت کے بغیر استعمال نہیں کیا جا سکتا۔",
+          en: "The Open Seed International name, logo, packaging designs and all content may not be used without our permission.",
+          ur: "اوپن سیڈ انٹرنیشنل کا نام، لوگو، پیکجنگ ڈیزائن اور تمام مواد ہماری اجازت کے بغیر استعمال نہیں کیا جا سکتا۔",
         },
       },
       {

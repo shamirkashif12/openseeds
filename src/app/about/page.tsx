@@ -78,7 +78,7 @@ export default function About() {
           <div className="relative h-72 overflow-hidden rounded-3xl shadow-xl md:h-80"><Image src={IMG.handsSoil} alt="Seedlings in soil" fill sizes="25vw" className="object-cover" /></div>
           <div className="relative mt-12 h-72 overflow-hidden rounded-3xl shadow-xl md:h-80"><Image src={IMG.cornRows} alt="Corn field" fill sizes="25vw" className="object-cover" /></div>
           <div className="absolute left-1/2 top-1/2 grid h-32 w-32 -translate-x-1/2 -translate-y-1/2 place-items-center overflow-hidden rounded-full border-4 border-bg bg-white shadow-2xl">
-            <Image src="/images/logo.jpg" alt="Open Seeds logo" fill sizes="128px" className="scale-110 object-contain" />
+            <Image src="/images/logo.jpg" alt="Open Seed International logo" fill sizes="128px" className="scale-110 object-contain" />
           </div>
         </Reveal>
       </section>

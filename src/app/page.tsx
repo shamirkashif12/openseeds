@@ -132,8 +132,8 @@ export default function Home() {
         <div>
           <SectionTitle
             center={false}
-            eyebrow={{ en: "Why Open Seeds?", ur: "اوپن سیڈز کیوں؟" }}
-            title={{ en: "Why Choose Open Seeds?", ur: "اوپن سیڈز کا انتخاب کیوں کریں؟" }}
+            eyebrow={{ en: "Why Open Seed International?", ur: "اوپن سیڈ انٹرنیشنل کیوں؟" }}
+            title={{ en: "Why Choose Open Seed International?", ur: "اوپن سیڈ انٹرنیشنل کا انتخاب کیوں کریں؟" }}
             text={{ en: "We don't just sell seed — we grow crops alongside the farmer.", ur: "ہم صرف بیج نہیں بیچتے — ہم کسان کے ساتھ مل کر فصل اگاتے ہیں۔" }}
           />
           <div className="grid gap-5 sm:grid-cols-2">

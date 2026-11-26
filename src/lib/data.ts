@@ -40,6 +40,7 @@ export const SITE = {
   tagline: "Growing Together",
   email: "openseed145@gmail.com",
   phones: ["0305-1728923", "0300-1594118", "0303-0009145"],
+  headerPhone: "0303-9009145", // shown in the header top bar and mobile-menu Call button
   whatsapp: "923051728923",
   factory: { en: "1-KM Pakpattan Road, Qaboola, Arifwala", ur: "ایک کلومیٹر پاکپتن روڈ، قبولہ، عارف والا" },
   office: { en: "C Sector, Bahria Town, Lahore", ur: "سی سیکٹر، بحریہ ٹاؤن، لاہور" },

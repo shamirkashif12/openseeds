@@ -37,8 +37,8 @@ export default function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
           <div className="flex items-center gap-5">
-            <a href={`tel:${SITE.headerPhone.replace(/-/g, "")}`} className="flex items-center gap-1.5 hover:text-corn">
-              <Phone size={13} /> {SITE.headerPhone}
+            <a href={`tel:${SITE.phones[0].replace(/-/g, "")}`} className="flex items-center gap-1.5 hover:text-corn">
+              <Phone size={13} /> {SITE.phones[0]}
             </a>
             <a href={`mailto:${SITE.email}`} className="flex items-center gap-1.5 hover:text-corn">
               <Mail size={13} /> {SITE.email}
@@ -115,7 +115,7 @@ export default function Header() {
                   </motion.div>
                 ))}
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="mt-4 grid grid-cols-2 gap-3">
-                  <a href={`tel:${SITE.headerPhone.replace(/-/g, "")}`} className="flex items-center justify-center gap-2 rounded-xl bg-leaf py-3 font-semibold text-white">
+                  <a href={`tel:${SITE.phones[0].replace(/-/g, "")}`} className="flex items-center justify-center gap-2 rounded-xl bg-leaf py-3 font-semibold text-white">
                     <Phone size={18} /> <T en="Call" ur="کال کریں" />
                   </a>
                   <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-xl bg-[#25d366] py-3 font-semibold text-white">

@@ -39,9 +39,8 @@ export const SITE = {
   legalNameUrdu: "اوپن سیڈ انٹرنیشنل ایگرو کراپ سائنسز (پرائیویٹ لمیٹڈ)",
   tagline: "Growing Together",
   email: "openseed145@gmail.com",
-  phones: ["0305-1728923", "0300-1594118", "0303-0009145"],
-  headerPhone: "0303-9009145", // shown in the header top bar and mobile-menu Call button
-  whatsapp: "923051728923",
+  phones: ["0303-9009145", "0300-1595118"],
+  whatsapp: "923039009145", // 0303-9009145
   factory: { en: "1-KM Pakpattan Road, Qaboola, Arifwala", ur: "ایک کلومیٹر پاکپتن روڈ، قبولہ، عارف والا" },
   office: { en: "C Sector, Bahria Town, Lahore", ur: "سی سیکٹر، بحریہ ٹاؤن، لاہور" },
   mapLat: 30.1965325,
@@ -95,10 +94,10 @@ export const CATEGORIES: Category[] = [
   },
   {
     slug: "oil-seeds",
-    name: { en: "Oil Seeds", ur: "آئل سیڈز" },
+    name: { en: "Sunflower Seed", ur: "سورج مکھی کا بیج" },
     desc: {
-      en: "Sesame and other oil seeds — less water, good yield, better profit.",
-      ur: "تل اور دیگر تیل دار بیج — کم پانی، اچھی پیداوار، بہتر منافع۔",
+      en: "Sunflower seed and other oil seeds — less water, good yield, better profit.",
+      ur: "سورج مکھی کا بیج اور دیگر تیل دار بیج — کم پانی، اچھی پیداوار، بہتر منافع۔",
     },
     image: IMG.sunflower,
   },
@@ -145,6 +144,7 @@ const SPEC = {
   maturity: { en: "Maturity", ur: "پکنے کا دورانیہ" },
   grain: { en: "Grain Colour", ur: "دانے کا رنگ" },
   seedRate: { en: "Seed Rate", ur: "شرحِ بیج" },
+  seedWeight: { en: "Seed Weight", ur: "بیج کا وزن" },
   germination: { en: "Germination", ur: "اگاؤ" },
   nursery: { en: "Nursery", ur: "پنیری" },
   transplanting: { en: "Transplanting", ur: "منتقلی" },
@@ -152,6 +152,7 @@ const SPEC = {
 };
 const CORN: L = { en: "Maize / Corn (Hybrid)", ur: "مکئی (ہائبرڈ)" };
 const SPRING_AUTUMN: L = { en: "Spring & Autumn", ur: "بہار و خزاں" };
+const AUTUMN: L = { en: "Autumn", ur: "خزاں" };
 const KHARIF: L = { en: "Kharif", ur: "خریف" };
 const JUNE_JULY: L = { en: "June – July", ur: "جون – جولائی" };
 const HYBRID_CORN: L = { en: "Hybrid Corn Seed", ur: "ہائبرڈ مکئی کا بیج" };
@@ -169,8 +170,8 @@ export const PRODUCTS: Product[] = [
       ur: "لمبی چھلی، بھاری دانہ — ہر زمیندار کی پہلی پسند۔",
     },
     description: {
-      en: "P-3940 is Open Seed International's flagship hybrid corn variety: a strong stalk, long and fully filled cobs, and bright orange-yellow grain. Suited to both the spring and autumn seasons.",
-      ur: "P-3940 اوپن سیڈ انٹرنیشنل کی فلیگ شپ ہائبرڈ مکئی کی قسم ہے۔ مضبوط تنا، لمبی اور مکمل بھری ہوئی چھلی، اور چمکدار نارنجی پیلا دانہ۔ بہار اور خزاں دونوں موسموں کے لیے موزوں۔",
+      en: "P-3940 is Open Seed International's flagship hybrid corn variety: a strong stalk, long and fully filled cobs, and bright orange-yellow grain. Suited to the autumn season.",
+      ur: "P-3940 اوپن سیڈ انٹرنیشنل کی فلیگ شپ ہائبرڈ مکئی کی قسم ہے۔ مضبوط تنا، لمبی اور مکمل بھری ہوئی چھلی، اور چمکدار نارنجی پیلا دانہ۔ خزاں کے موسم کے لیے موزوں۔",
     },
     features: [
       { en: "High yield potential", ur: "زیادہ پیداوار کی صلاحیت" },
@@ -181,10 +182,10 @@ export const PRODUCTS: Product[] = [
     ],
     specs: [
       { label: SPEC.crop, value: CORN },
-      { label: SPEC.season, value: SPRING_AUTUMN },
+      { label: SPEC.season, value: AUTUMN },
       { label: SPEC.maturity, value: { en: "110 – 120 days", ur: "110 – 120 دن" } },
       { label: SPEC.grain, value: { en: "Orange-Yellow", ur: "نارنجی پیلا" } },
-      { label: SPEC.seedRate, value: { en: "8 – 10 kg / acre", ur: "8 – 10 کلو فی ایکڑ" } },
+      { label: SPEC.seedWeight, value: { en: "8 – 10 kg / acre", ur: "8 – 10 کلو فی ایکڑ" } },
       { label: SPEC.germination, value: { en: "90%+ (min.)", ur: "کم از کم 90%" } },
     ],
   },
